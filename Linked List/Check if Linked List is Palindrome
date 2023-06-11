@@ -1,0 +1,27 @@
+Given a singly linked list of size N of integers. The task is to check if the given linked list is palindrome or not.
+
+class Solution{
+  public:
+    //Function to check whether the list is palindrome.
+    bool isPalindrome(Node *head)
+    {   
+        //Your code here
+        if(head==NULL){
+            return head;
+        }
+        Node *temp=head;
+        while(temp->next!=NULL){
+            Node *prev=temp;
+            temp=temp->next;
+            if(temp->next==NULL){
+                if(temp->data!=head->data){
+                    return false;
+                }
+                head=head->next;
+                temp=head;
+                prev->next=NULL;
+            }
+        }
+        return true;
+    }
+};
